@@ -10,5 +10,5 @@ export class SocketService extends Socket {
     super({
       url: '',
     })
-   }
+  }
 }
