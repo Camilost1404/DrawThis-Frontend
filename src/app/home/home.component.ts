@@ -8,6 +8,8 @@ import { RouterLink, RouterModule } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  nameRoom: string = "";
+
   constructor() { }
 
   ngOnInit(): void {

@@ -12,9 +12,9 @@ export class DrawComponent implements OnInit, AfterViewInit {
   @ViewChild('canvasRef', { static: false }) canvasRef: any
 
   // Propiedades de Altura y anchura del canvas
-  public width = 800;
+  public width = 717;
 
-  public height = 800;
+  public height = 700;
 
   // Variable para un Contexto Canvas
   private canvasContext!: CanvasRenderingContext2D;
