@@ -11,7 +11,7 @@ export class SocketService extends Socket {
 
   constructor(private cookieService: CookieService) {
     super({
-      url: 'https://powerful-bastion-19748.herokuapp.com/', //
+      url: 'https://powerful-bastion-19748.herokuapp.com', //
       options: {
         query: {
           // Obtener el nombre de la sala guardada en la cookie
