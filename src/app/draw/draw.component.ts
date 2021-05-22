@@ -74,8 +74,8 @@ export class DrawComponent implements OnInit, AfterViewInit {
 
     socketService.outEven.subscribe(res => {
       const { previousPos } = res;
-      this.writeSingle(res);
-      console.log(previousPos, false);
+      this.writeSingle(previousPos, false);
+      console.log(previousPos);
     })
   }
 

@@ -11,7 +11,7 @@ export class SocketService extends Socket {
 
   constructor(private cookieService: CookieService) {
     super({
-      url: 'https://powerful-bastion-19748.herokuapp.com', //
+      url: 'http://localhost:5000', //
       options: {
         query: {
           // Obtener el nombre de la sala guardada en la cookie
@@ -25,11 +25,12 @@ export class SocketService extends Socket {
 
   // Escuchar lo que el backend emite
   listen = () => {
-    this.ioSocket.on('event', (res: any)  => this.outEven.emit(res))
+    this.ioSocket.on('evento', (res: any) => this.outEven.emit(res));
+
   }
 
-  // Emitir al backend
-  emitEvent = (payLoad = {}) => {
-    this.ioSocket.emit('event', payLoad)
+  emitEvent = (payload = {}) => {
+    this.ioSocket.emit('evento', payload)
+
   }
 }
