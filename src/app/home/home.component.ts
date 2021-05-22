@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,10 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  enterRoom = (nameRoom: any) => {
+    RouterModule.forRoot(nameRoom);
   }
 
 }

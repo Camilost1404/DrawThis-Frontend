@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { SocketService } from '../socket.service';
 
 @Component({
   selector: 'app-draw',
@@ -69,7 +70,14 @@ export class DrawComponent implements OnInit, AfterViewInit {
 
   }
 
-  constructor() { }
+  constructor(private socketService: SocketService) {
+
+    socketService.outEven.subscribe(res => {
+      const { previousPos } = res;
+      this.writeSingle(res);
+      console.log(previousPos, false);
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -119,7 +127,7 @@ export class DrawComponent implements OnInit, AfterViewInit {
 
   }
 
-  private writeSingle = (previousPos: any) => {
+  private writeSingle = (previousPos: any, emit: boolean = true) => {
     // Guardar coordenadas en el array points
     this.points.push(previousPos);
 
@@ -129,6 +137,10 @@ export class DrawComponent implements OnInit, AfterViewInit {
 
       // Le pasamos como parametros los puntos previos y actuales del lienzo
       this.draw(previousPos, currentPos);
+
+      if(emit){
+        this.socketService.emitEvent({ previousPos })
+      }
     }
   }
 

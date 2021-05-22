@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="m-0 vh-100 row justify-content-center align-items-center bg-warning">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6 align-self-center p-4 bg-danger border border-dark border-5 rounded-3">
+        <h1 class="fw-bold text-center text-light">Draw This!!</h1>
+        <form #f>
+          <div class="mb-3">
+            <label class="form-label fw-bold text-light">Sala</label>
+            <input #nameRoom required type="text" class="form-control" placeholder="Nombre de la Sala">
+          </div>
+          <button class="btn btn-warning" [disabled]="f.invalid" >Entrar a la Sala</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
