@@ -11,7 +11,7 @@ export class SocketService extends Socket {
 
   constructor(private cookieService: CookieService) {
     super({
-      url: 'https://peaceful-depths-58209.herokuapp.com/', //http://localhost:5000
+      url: 'http://localhost:5000',
       options: {
         query: {
           // Obtener el nombre de la sala guardada en la cookie
