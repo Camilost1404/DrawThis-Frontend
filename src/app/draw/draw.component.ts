@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { SocketService } from '../socket.service';
 
 @Component({
@@ -9,10 +9,8 @@ import { SocketService } from '../socket.service';
 export class DrawComponent implements OnInit, AfterViewInit {
 
   // Hacer referencia a un componente de la parte grafica
-  @ViewChild('canvasRef', { static: false }) canvasRef: any
-
-  // Propiedades de Altura y anchura del canvas
-  public width = 717;
+  @ViewChild('canvasRef', { static: false })
+  canvasRef: any
 
   public height = 700;
 
@@ -97,7 +95,7 @@ export class DrawComponent implements OnInit, AfterViewInit {
     this.canvasContext = canvasElement.getContext('2d');
 
     // Dimension del lienzo de canvas
-    canvasElement.width = this.width;
+    canvasElement.width = this.canvasRef.nativeElement.offsetWidth;
     canvasElement.height = this.height;
 
     // Especificaciones del contexto
@@ -164,6 +162,6 @@ export class DrawComponent implements OnInit, AfterViewInit {
     // Limpiar las coordenadas previamente guardadas
     this.points = [];
 
-    this.canvasContext.clearRect(0, 0, this.width, this.height);
+    this.canvasContext.clearRect(0, 0, this.canvasRef.nativeElement.offsetWidth, this.height);
   }
 }

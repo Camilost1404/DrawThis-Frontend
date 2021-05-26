@@ -1,10 +1,15 @@
-<div class="row justify-content-center align-items-center bg-warning">
-  <div class="row justify-content-center">
-    <div class="col-6 align-self-center p-3">
-      <h1 class="fw-bold text-center text-Dark mb-2">Draw This!!</h1>
-      <canvas id="canvasId" class="bg-light border-dark border-5 rounded-3" #canvasRef></canvas>
-      <button class="btn btn-success position-relative mt-2" (click)='clearZone()'>Limpiar</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-danger border-bottom border-dark border-5">
+  <div class="container-fluid">
+    <h3 class="fw-bold text-center text-light mb-2">Draw This!!</h3>
+    <div id="navbarSupportedContent">
+      <button class="btn btn-warning" routerLink="/">Volver</button>
     </div>
+  </div>
+</nav>
+<div class="row justify-content-center align-items-center bg-warning">
+  <div class="col-6 align-self-center p-3">
+    <canvas id="canvasId" class="bg-light border-dark border-5 rounded-3" style="width: 100%;" #canvasRef></canvas>
+    <button class="btn btn-success position-relative mt-2" (click)='clearZone()'>Limpiar</button>
   </div>
 </div>
 
