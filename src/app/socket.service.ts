@@ -1,5 +1,4 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { Socket } from 'ngx-socket-io';
 
 @Injectable({
@@ -9,7 +8,7 @@ export class SocketService extends Socket {
 
   @Output() outEven: EventEmitter<any> = new EventEmitter();
 
-  constructor(private cookieService: CookieService) {
+  constructor() {
     super({
       url: 'http://localhost:5000',
       options: {
