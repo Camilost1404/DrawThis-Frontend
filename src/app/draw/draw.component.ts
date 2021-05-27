@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { SocketService } from '../socket.service';
 
 @Component({
@@ -68,8 +69,7 @@ export class DrawComponent implements OnInit, AfterViewInit {
 
   }
 
-  constructor(private socketService: SocketService) {
-
+  constructor(private socketService: SocketService, private cookieService: CookieService) {
     socketService.outEven.subscribe(res => {
       const { previousPos } = res;
       this.writeSingle(previousPos, false);
@@ -161,7 +161,6 @@ export class DrawComponent implements OnInit, AfterViewInit {
   public clearZone() {
     // Limpiar las coordenadas previamente guardadas
     this.points = [];
-
     this.canvasContext.clearRect(0, 0, this.canvasRef.nativeElement.offsetWidth, this.height);
   }
 }

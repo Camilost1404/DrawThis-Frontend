@@ -26,7 +26,6 @@ export class SocketService extends Socket {
   // Escuchar lo que el backend emite
   listen = () => {
     this.ioSocket.on('evento', (res: any) => this.outEven.emit(res));
-
   }
 
   emitEvent = (payload = {}) => {

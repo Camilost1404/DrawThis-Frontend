@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,10 @@ export class HomeComponent implements OnInit {
 
   nameRoom: string = "";
 
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit(): void {
+    this.cookieService.delete("room")
   }
 
   enterRoom = (nameRoom: any) => {
