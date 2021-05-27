@@ -5,10 +5,15 @@
         <h1 class="fw-bold text-center text-light">Draw This!!</h1>
         <form #f>
           <div class="mb-3">
-            <label class="form-label fw-bold text-light">Sala</label>
-            <input name="Sala" [(ngModel)]="nameRoom" required type="text" class="form-control" placeholder="Nombre de la Sala">
+            <label for="validationCustom01"class="form-label fw-bold text-light">Sala</label>
+            <input [(ngModel)]="nameRoom" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="validationCustom01" placeholder="Nombre de la Sala" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
           </div>
-          <button class="btn btn-warning" routerLink="{{nameRoom}}">Entrar a la Sala</button>
+          <div *ngIf="nameRoom!=''">
+            <button class="btn btn-warning" routerLink="{{nameRoom}}">Entrar a la Sala</button>
+          </div>
         </form>
       </div>
     </div>

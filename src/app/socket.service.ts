@@ -15,7 +15,7 @@ export class SocketService extends Socket {
       options: {
         query: {
           // Obtener el nombre de la sala guardada en la cookie
-          nameRoom: cookieService.get('room'),
+          nameRoom: localStorage.getItem("room"),
         }
       }
     })
